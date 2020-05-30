@@ -49,9 +49,9 @@ WSGI_APPLICATION = 'crmvadvogados.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bdcrmvadvogados',
-        'USER': 'postgres',
-        'PASSWORD': 'Alexandre11',
+        'NAME': 'd4unc1k5onvvlk',
+        'USER': 'vzwqymdzcylfke',
+        'PASSWORD': '6aabd2dff5f576cb2417455b4fe23d47926f45550a96c6e80339b4ceb7019d99',
         'HOST': '127.0.0.1',
         'POST': '5432',
     }
@@ -80,3 +80,6 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+
+import django_heroku
+django_heroku.settings(locals())
