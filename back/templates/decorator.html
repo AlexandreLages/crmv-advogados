@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CRMV - Advogados</title>
+
+  <link href="{% static 'site/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'admin/vendor/fontawesome-free/css/all.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'eoficio/css/eoficio.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="{% static 'admin/css/sb-admin-2.css' %}" rel="stylesheet">
+
+  {% block style %}{% endblock %}
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+
+    <!-- Barra de navegação lateral -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Área do Advogado</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="">
+          <i class="fas fa-fw fa-bars"></i>
+          <span>Menu Inicial</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </ul>
+    <!-- Fim da barra de navegação -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+
+      <!-- Rodapé -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Alexandre Lages 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- Fim do Rodapé -->
+
+    </div>
+  </div>
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src="{% static 'admin/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'admin/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'admin/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'admin/js/sb-admin-2.min.js' %}"></script>
+  <script src="{% static 'iscool/js/jquery.mask.js' %}"></script>
+  <script src="{% static 'admin/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'admin/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'admin/js/demo/datatables-demo.js' %}"></script>
+
+  {% block javascript %}{% endblock %}
+</body>
+
+</html>
