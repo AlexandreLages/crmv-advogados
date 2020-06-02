@@ -50,9 +50,9 @@ WSGI_APPLICATION = 'crmvadvogados.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bdcrmvadvogados',
+        'NAME': 'banco',
         'USER': 'postgres',
-        'PASSWORD': 'Alexandre11',
+        'PASSWORD': 'senha',
         'HOST': '127.0.0.1',
         'POST': '5432',
     }
