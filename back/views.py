@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 from core.models import Advogado
+from core.models import PaginaInicial
 
 
 def login_view(request):
@@ -30,6 +31,16 @@ def logout_view(request):
 	return redirect('/')
 
 
+@login_required
 def advogado_view(request):
     advogado = Advogado.objects.get(user=request.user)
     return render(request, 'advogado.html', {'advogado': advogado})
+
+
+@login_required
+def dash_home_view(request):
+    advogado = Advogado.objects.get(user=request.user)
+    home = PaginaInicial.objects.all()
+    if home:
+        home = PaginaInicial.objects.filter()[0]
+    return render(request, 'dash_pagina_inicial.html', {'advogado': advogado, 'home': home})    

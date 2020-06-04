@@ -1,0 +1,89 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block content %}
+
+{% block style %}
+{% endblock %}
+
+<!-- Barra de navegação do topo -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <h1 class="h3 mb-0 text-gray-800">{{advogado.nome}}</h1>
+
+  <ul class="navbar-nav ml-auto">
+    <div class="topbar-divider d-none d-sm-block"></div>
+
+    <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.username}}</span>
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="{% url 'back_logout' %}">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Sair
+              </a>
+          </div>
+        </li>
+  </ul>
+</nav>              
+
+<!-- Container principal -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="card shadow mb-4" id="pagina-inicial">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Página Inicial</h6>
+        </div>
+        <div class="card-body">
+          <form id="formPaginaInicial" accept="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="form-group col-6">
+                <label for="titulo_site">Título do Site</label>
+                <input type="text" class="form-control form-control-sm" id="titulo_site" placeholder="Título do Site" name="titulo" value="{{home.titulo}}">
+              </div>
+
+              <div class="form-group col-6">
+                <label for="titulo_sobre">Título do Sobre</label>
+                <input type="text" class="form-control form-control-sm" id="titulo_sobre" placeholder="Título do Sobre" name="titulo" value="{{home.titulo_sobre}}">
+              </div>
+
+              <div class="form-group col-12">
+                <label for="mensagem">Mensagem do Sobre</label>
+                <textarea class="form-control form-control-sm" id="mensagem" rows="2" name="mensagem" placeholder="Mensagem do Sobre">{{home.mensagem_sobre}}</textarea>
+              </div>
+
+              <div class="form-group col-12">
+                <label for="imagem">Imagem do Sobre</label>
+                <input type="file" class="form-control form-control-sm" name="" id="imagem">
+              </div>
+
+              <div class="form-group col-12">
+                <button type="file" class="btn btn-success btn-sm btn-block" name="">Salvar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="card shadow mb-4" id="slides">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Redes Sociais</h6>
+        </div>
+        <div class="card-body">
+          <form id="formPaginaInicial" accept="" method="POST">
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
