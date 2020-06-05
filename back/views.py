@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import FileSystemStorage
 
 from core.models import Advogado
 from core.models import PaginaInicial
@@ -41,6 +42,54 @@ def advogado_view(request):
 def dash_home_view(request):
     advogado = Advogado.objects.get(user=request.user)
     home = PaginaInicial.objects.all()
+
     if home:
         home = PaginaInicial.objects.filter()[0]
-    return render(request, 'dash_pagina_inicial.html', {'advogado': advogado, 'home': home})    
+
+    if request.method == 'GET':
+        return render(request, 'dash_pagina_inicial.html', {'advogado': advogado, 'home': home})
+
+    elif request.method == 'POST':
+        if home:
+            home.titulo = request.POST['titulo_site']
+            home.titulo_sobre = request.POST['titulo_sobre']
+            home.mensagem_sobre = request.POST['mensagem_sobre']
+            home.email_principal = request.POST['email_principal']
+            home.telefone_principal = request.POST['telefone_principal']
+            imagem_sobre = request.FILES.get('imagem_sobre', False)
+
+            if imagem_sobre:
+                fs = FileSystemStorage()
+                filename = fs.save(imagem_sobre.name, imagem_sobre)
+                uploaded_file_url = fs.url(filename)
+                home.imagem_sobre=uploaded_file_url
+
+            home.save()
+
+        return render(request, 'dash_pagina_inicial.html', {'advogado': advogado, 'home': home})
+
+
+@login_required
+def dash_redes_view(request):
+    advogado = Advogado.objects.get(user=request.user)
+    home = PaginaInicial.objects.all()
+
+    if home:
+        home = PaginaInicial.objects.filter()[0]
+
+    if request.method == 'POST':
+        if home:
+            home.titulo = request.POST['titulo_site']
+            home.titulo_sobre = request.POST['titulo_sobre']
+            home.mensagem_sobre = request.POST['mensagem_sobre']
+            imagem_sobre = request.FILES.get('imagem_sobre', False)
+
+            if imagem_sobre:
+                fs = FileSystemStorage()
+                filename = fs.save(imagem_sobre.name, imagem_sobre)
+                uploaded_file_url = fs.url(filename)
+                home.imagem_sobre=uploaded_file_url
+
+            home.save()
+
+        return render(request, 'dash_pagina_inicial.html', {'advogado': advogado, 'home': home})

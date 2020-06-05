@@ -41,12 +41,16 @@ class PaginaInicial(models.Model):
 
     usa_twitter = models.BooleanField(default=False)
     url_twitter = models.CharField(max_length=255, null=True, default='')
+
     usa_facebook = models.BooleanField(default=False)
     url_facebook = models.CharField(max_length=255, null=True, default='')
+
     usa_instagram = models.BooleanField(default=False)
     url_instagram = models.CharField(max_length=255, null=True, default='')
+
     usa_whatsapp = models.BooleanField(default=False)
     url_whatsapp = models.CharField(max_length=255, null=True, default='')
+
     usa_linkdin = models.BooleanField(default=False)
     url_linkdin = models.CharField(max_length=255, null=True, default='')
 
@@ -57,6 +61,9 @@ class PaginaInicial(models.Model):
 
     class Meta:
         db_table = 'tbPaginaInicial'
+
+    def url_telefone(self):
+        return 'https://api.whatsapp.com/send?phone=55' + self.telefone_principal.replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
 
 
 class Carrocel(models.Model):

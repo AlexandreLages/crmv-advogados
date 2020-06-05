@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>CRMV - Advogados</title>
+  <title>{{home.titulo}}</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -35,8 +35,8 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
-        <i class="icofont-envelope"></i><a href="mailto:alexandrelages64@gmail.com">alexandrelages64@gmail.com</a>
-        <i class="icofont-phone"></i>+55 (86) 99932-6821
+        <i class="icofont-envelope"></i><a href="mailto:{{home.email_principal}}">{{home.email_principal}}</a>
+        <i class="icofont-phone"></i><a href="{{home.url_telefone}}" target="_blank">{{home.telefone_principal}}</a>
       </div>
       <div class="social-links float-right">
         <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
@@ -53,7 +53,7 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href=""><span>CRMV - Advogados</span></a></h1>
+        <h1 class="text-light"><a href=""><span>{{home.titulo}}</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!--<a href="index.html"><img src="{% static 'site/assets/img/logopeb.png' %}" alt="" class="img-fluid" height="100px"></a>-->
       </div>
@@ -136,15 +136,15 @@
 
         <div class="row no-gutters">
           <div class="col-lg-6 video-box">
-            <img src="static/site/assets/img/about.jpg" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <img src="{{home.imagem_sobre}}" class="img-fluid" alt="">
+            <!--<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>-->
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
 
             <div class="section-title">
-              <h2>Missão/Quem Somos</h2>
-              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+              <h2>{{home.titulo_sobre}}</h2>
+              <p>{{home.mensagem_sobre}}</p>
             </div>
           </div>
         </div>
